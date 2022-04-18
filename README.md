@@ -43,6 +43,7 @@ for fact in facts {
 	println((facts.index(fact) + 1).str() + ':\n$fact.fact\n')
 }
 ```
+![Console](https://i.imgur.com/ZbhdNcm.jpg)
 
 ## Dog Facts UI
 Same as the console one, compile and run the code then enter the number of facts you want to get to the text box then click the button.
@@ -80,3 +81,4 @@ fn btn_fact_click(mut app App, b voidptr) {
 	}
 }
 ```
+![UI](https://i.imgur.com/3Fnl2g5.jpg)
