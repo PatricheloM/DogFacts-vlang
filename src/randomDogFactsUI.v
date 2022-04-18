@@ -8,19 +8,23 @@ struct Fact {
 }
 
 fn btn_fact_click(mut app App, b voidptr) {
+	mut returnval := ''
 	resp := http.get('https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=' + app.number) or {
-		eprintln('Failed to fetch data from the server')
+		returnval = 'Failed to fetch data from the server'
+		ui.message_box(returnval)
 		return
 	}
 	r := resp.text
 
 	mut facts := json.decode([]Fact, r) or {
-        eprintln('Failed to parse json')
+		returnval = 'Failed to parse json'
+		ui.message_box(returnval)
         return
     }
 	
 	for fact in facts {
-		ui.message_box((facts.index(fact) + 1).str() + ':\n$fact.fact')
+		returnval = (facts.index(fact) + 1).str() + ':\n$fact.fact'
+		ui.message_box(returnval)
 	}
 }
 
