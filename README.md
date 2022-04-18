@@ -32,7 +32,7 @@ V translates to C and then compiles the C code.
 ###### For the UI code to be compiled, get the UI library [from this link](https://github.com/vlang/ui/).
 
 ## Dog Facts in the console
-Simple compile and run the code then enter the number of facts you want to get.
+Simply compile and run the code then enter the number of facts you want to get.
 ```go
 // reads the number from console then adds it to the end of the API url
 number := input('Enter the number of facts: ') 
@@ -43,6 +43,7 @@ for fact in facts {
 	println((facts.index(fact) + 1).str() + ':\n$fact.fact\n')
 }
 ```
+![Console](https://i.imgur.com/ZbhdNcm.jpg)
 
 ## Dog Facts UI
 Same as the console one, compile and run the code then enter the number of facts you want to get to the text box then click the button.
@@ -80,3 +81,4 @@ fn btn_fact_click(mut app App, b voidptr) {
 	}
 }
 ```
+![UI](https://i.imgur.com/3Fnl2g5.jpg)
