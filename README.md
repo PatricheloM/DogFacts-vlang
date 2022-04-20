@@ -122,10 +122,10 @@ pub fn (mut app App) facts() vweb.Result {
 		<hr>
 		<!--creates a list with the facts if no error occured-->
 		@if errorb
-			<div style="font-size: x-large; padding: 10px; font-weight: bold">Your facts:</div>
+			<div style="...">Your facts:</div>
 			<ol>
 				@for returnval in returnvals
-					<li style="padding: 10px">@returnval</li>
+					<li style="...">@returnval</li>
 				@end
 			</ol>
 		@else
