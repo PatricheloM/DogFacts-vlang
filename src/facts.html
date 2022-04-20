@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<!--This html code was preprocessed in V language-->
+		<meta charset=utf-8>
+		<title>Dog Facts</title>
+	</head>
+	<body style="background-color: lightblue; margin: 30px; font-family: Arial, Helvetica, sans-serif;">
+		<h1 style="text-align: center">Dog Facts</h1>
+		@include 'header.html'
+		<hr>
+		@if errorb
+			<div style="font-size: x-large; padding: 10px; font-weight: bold">Your facts:</div>
+			<ol>
+				@for returnval in returnvals
+					<li style="padding: 10px">@returnval</li>
+				@end
+			</ol>
+		@else
+			<p>Error: @{returnvals[0]}</p>
+		@end
+		<hr>
+	</body>
+</html>

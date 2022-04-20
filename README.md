@@ -28,8 +28,9 @@ mut facts := json.decode([]Fact, resp.text) or {
 ## Compling and running
 Since V is a compiled language, it produces a binary file for your OS to run.
 V translates to C and then compiles the C code.
-###### Yout can clone the compiler's repository [from this link](https://github.com/vlang/v/).
+###### You can clone the compiler's repository [from this link](https://github.com/vlang/v/).
 ###### For the UI code to be compiled, get the UI library [from this link](https://github.com/vlang/ui/).
+###### The Web library is already included in the compliler's repository but you can get some examples [from this link](https://github.com/vlang/v/tree/master/vlib/vweb).
 
 ## Dog Facts in the console
 Simply compile and run the code then enter the number of facts you want to get.
@@ -82,3 +83,56 @@ fn btn_fact_click(mut app App, b voidptr) {
 }
 ```
 ![UI](https://i.imgur.com/3Fnl2g5.jpg)
+
+## Dog Facts Web
+Hosts a form on your localhost with port 8082, open it with a browser then enter the number of facts then hit the enter key on your keyboard.
+```html
+<!--gets the number from the input field then posts it to the app-->
+<form method="POST" enctype="multipart/form-data" action="/facts" style="padding: 10px">
+	<label for="number">Number of facts:</label><br>
+	<input type="text" id="number" name="number">
+</form>
+```
+```go
+['/facts'; post]
+pub fn (mut app App) facts() vweb.Result {
+	
+	// prints to the console whenever someone visits the page
+	lock app.state {
+		app.state.cnt++
+		println('Someone visited at: $time.now().str()')
+	}
+	
+	// does the same get method and deserialization
+	...
+	
+	return $vweb.html()
+}
+```
+```html
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		...
+	</head>
+	<body style="...">
+		<h1 style="...">Dog Facts</h1>
+		<!--reincludes the form if you want to make another api call
+		@include 'header.html'
+		<hr>
+		<!--creates a list with the facts if no error occured-->
+		@if errorb
+			<div style="font-size: x-large; padding: 10px; font-weight: bold">Your facts:</div>
+			<ol>
+				@for returnval in returnvals
+					<li style="padding: 10px">@returnval</li>
+				@end
+			</ol>
+		@else
+			<p>Error: @{returnvals[0]}</p>
+		@end
+		<hr>
+	</body>
+</html>
+```
+![Web](https://i.imgur.com/brTxPv4.jpg)
