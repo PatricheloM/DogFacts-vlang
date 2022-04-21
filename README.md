@@ -1,6 +1,6 @@
 # Dog Facts API implementation in V language
 ##### Simple UI and Console application getting your daily dose of dog fact no matter the number of them!
-###### Both codes are using the same Dog Facts API. Its documentation is [available on this link](https://dukengn.github.io/Dog-facts-API/).
+###### All codes are using the same Dog Facts API. Its documentation is [available on this link](https://dukengn.github.io/Dog-facts-API/).
 
 ## Written in V language
 These codes were written in V: a powerful, simple, fast, safe, compiled language with its compilation time close to zero second.
