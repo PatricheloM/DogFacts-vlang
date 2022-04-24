@@ -12,7 +12,7 @@ struct Fact {
 ```
 ```go
 // getting the JSON containing the facts
-resp := http.get('https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1' + number.str()) or {
+resp := http.get('https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=' + number.str()) or {
 	eprintln('Failed to fetch data from the server')
 	return
 }
