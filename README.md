@@ -1,6 +1,7 @@
 # Dog Facts API implementation in V language
 ##### Simple UI and Console application getting your daily dose of dog fact no matter the number of them!
-###### Both codes are using the same Dog Facts API. Its documentation is [available on this link](https://dukengn.github.io/Dog-facts-API/).
+###### ~~All codes are using the same Dog Facts API. Its documentation is [available on this link](https://dukengn.github.io/Dog-facts-API/).~~
+###### *Apparently the API is out of service :(*
 
 ## Written in V language
 These codes were written in V: a powerful, simple, fast, safe, compiled language with its compilation time close to zero second.
@@ -12,7 +13,7 @@ struct Fact {
 ```
 ```go
 // getting the JSON containing the facts
-resp := http.get('https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1' + number.str()) or {
+resp := http.get('https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=' + number.str()) or {
 	eprintln('Failed to fetch data from the server')
 	return
 }
@@ -122,10 +123,10 @@ pub fn (mut app App) facts() vweb.Result {
 		<hr>
 		<!--creates a list with the facts if no error occured-->
 		@if errorb
-			<div style="font-size: x-large; padding: 10px; font-weight: bold">Your facts:</div>
+			<div style="...">Your facts:</div>
 			<ol>
 				@for returnval in returnvals
-					<li style="padding: 10px">@returnval</li>
+					<li style="...">@returnval</li>
 				@end
 			</ol>
 		@else
