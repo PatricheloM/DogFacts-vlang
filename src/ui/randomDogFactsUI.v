@@ -34,10 +34,6 @@ struct App {
 		number string
 }
 
-fn test() {
-
-}
-
 fn main() {
 	mut app := &App{
 		window: 0
